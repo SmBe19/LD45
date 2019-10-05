@@ -14,9 +14,7 @@ You can run for the following offices:
  - City Minister for vegetables
  - City Major
  - Country Parliament
- - Country Minister for fruits
  - Country Minister for dinosaurs
- - Country Minister for trees
  - President
 
 ## Actions

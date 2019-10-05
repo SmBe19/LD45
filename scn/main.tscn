@@ -1,16 +1,35 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=19 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
 [ext_resource path="res://src/officeislandmap.gd" type="Script" id=3]
 [ext_resource path="res://img/office.png" type="Texture" id=4]
 [ext_resource path="res://img/flag.png" type="Texture" id=5]
-[ext_resource path="res://scn/islandmap.tscn" type="PackedScene" id=6]
-[ext_resource path="res://font/OpenSans-Light.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://font/OpenSans-Light.ttf" type="DynamicFontData" id=6]
+[ext_resource path="res://font/OpenSans-Bold.ttf" type="DynamicFontData" id=7]
+[ext_resource path="res://font/OpenSans-Regular.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://font/OpenSans-BoldItalic.ttf" type="DynamicFontData" id=9]
+[ext_resource path="res://scn/pollinfo.tscn" type="PackedScene" id=10]
+[ext_resource path="res://scn/finance.tscn" type="PackedScene" id=11]
+[ext_resource path="res://scn/tweet.tscn" type="PackedScene" id=12]
+[ext_resource path="res://scn/islandmap.tscn" type="PackedScene" id=13]
 
 [sub_resource type="DynamicFont" id=1]
 size = 10
+font_data = ExtResource( 6 )
+
+[sub_resource type="DynamicFont" id=2]
 font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 7 )
+
+[sub_resource type="DynamicFont" id=4]
+size = 14
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 9 )
 
 [node name="Root" type="Node2D"]
 script = ExtResource( 1 )
@@ -44,28 +63,181 @@ rotation = -0.545382
 scale = Vector2( 0.0964418, 0.0964418 )
 texture = ExtResource( 5 )
 
-[node name="islandmap" parent="." instance=ExtResource( 6 )]
-visible = false
-
 [node name="personname" type="Label" parent="."]
-margin_left = 412.113
-margin_top = 355.264
-margin_right = 475.113
-margin_bottom = 369.264
+margin_left = 403.706
+margin_top = 356.441
+margin_right = 494.706
+margin_bottom = 370.441
 rect_rotation = -3.19061
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mr Blub"
 
 [node name="officename" type="Label" parent="."]
-margin_left = 417.491
-margin_top = 364.226
-margin_right = 480.491
-margin_bottom = 378.226
+margin_left = 408.647
+margin_top = 364.971
+margin_right = 496.647
+margin_bottom = 387.971
 rect_rotation = -3.19061
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
-text = "Nobody"
+custom_constants/line_spacing = -5
+text = "Nobody
+Blub"
+autowrap = true
+
+[node name="money" type="Label" parent="."]
+margin_left = 494.85
+margin_top = 304.35
+margin_right = 590.85
+margin_bottom = 327.35
+custom_fonts/font = SubResource( 2 )
+custom_colors/font_color = Color( 0.4, 1, 0.45098, 1 )
+text = "$ 0"
+align = 2
+
+[node name="campaigninfo" type="VBoxContainer" parent="."]
+margin_left = 400.0
+margin_top = 70.0
+margin_right = 501.0
+margin_bottom = 170.0
+
+[node name="title" type="Label" parent="campaigninfo"]
+margin_right = 101.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 3 )
+text = "Campaign"
+
+[node name="officename" type="Label" parent="campaigninfo"]
+margin_top = 27.0
+margin_right = 101.0
+margin_bottom = 47.0
+custom_fonts/font = SubResource( 4 )
+text = "---"
+autowrap = true
+
+[node name="campaigntime" type="Label" parent="campaigninfo"]
+visible = false
+margin_top = 51.0
+margin_right = 101.0
+margin_bottom = 71.0
+custom_fonts/font = SubResource( 4 )
+text = "---"
+autowrap = true
+
+[node name="startrun" type="Button" parent="campaigninfo"]
+margin_top = 51.0
+margin_right = 101.0
+margin_bottom = 80.0
+focus_mode = 0
+custom_fonts/font = SubResource( 5 )
+enabled_focus_mode = 0
+text = "start"
+flat = true
+
+[node name="campaignpopup" type="PopupPanel" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -4.0
+margin_top = -4.0
+margin_right = 4.0
+margin_bottom = 4.0
+popup_exclusive = true
+
+[node name="vbox" type="VBoxContainer" parent="campaignpopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 4.0
+margin_bottom = 4.0
+
+[node name="newpoll" type="Button" parent="."]
+margin_left = 218.444
+margin_top = 346.742
+margin_right = 348.444
+margin_bottom = 448.742
+hint_tooltip = "New Poll ($ 20)"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="newtweet" type="Button" parent="."]
+margin_left = 389.0
+margin_top = 399.0
+margin_right = 433.0
+margin_bottom = 470.0
+hint_tooltip = "New Shoutr.io Message"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="financeinfo" type="Button" parent="."]
+margin_left = 475.0
+margin_top = 262.0
+margin_right = 608.0
+margin_bottom = 342.0
+hint_tooltip = "Finance Info"
+focus_mode = 0
+enabled_focus_mode = 0
+flat = true
+
+[node name="pollinfo" parent="." instance=ExtResource( 10 )]
+visible = false
+margin_left = 648.429
+margin_top = 70.4325
+margin_right = 648.429
+margin_bottom = 70.4325
+rect_scale = Vector2( 0.350051, 0.350051 )
+
+[node name="finance" parent="." instance=ExtResource( 11 )]
+visible = false
+margin_right = 8.0
+margin_bottom = 8.0
+
+[node name="tweet" parent="." instance=ExtResource( 12 )]
+visible = false
+
+[node name="islandmap" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="campaignresultpopup" type="PopupPanel" parent="."]
+editor/display_folded = true
+margin_right = 214.0
+margin_bottom = 62.0
+
+[node name="margin" type="MarginContainer" parent="campaignresultpopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 210.0
+margin_bottom = 58.0
+custom_constants/margin_right = 8
+custom_constants/margin_top = 8
+custom_constants/margin_left = 8
+custom_constants/margin_bottom = 8
+
+[node name="vbox" type="VBoxContainer" parent="campaignresultpopup/margin"]
+margin_left = 8.0
+margin_top = 8.0
+margin_right = 198.0
+margin_bottom = 46.0
+
+[node name="label" type="Label" parent="campaignresultpopup/margin/vbox"]
+margin_right = 190.0
+margin_bottom = 14.0
+text = "Congrats"
+autowrap = true
+
+[node name="okbutton" type="Button" parent="campaignresultpopup/margin/vbox"]
+margin_top = 18.0
+margin_right = 190.0
+margin_bottom = 38.0
+text = "OK"
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]
+[connection signal="pressed" from="campaigninfo/startrun" to="." method="_on_startrun_pressed"]
+[connection signal="pressed" from="newpoll" to="." method="_on_newpoll_pressed"]
+[connection signal="pressed" from="newtweet" to="." method="_on_newtweet_pressed"]
+[connection signal="pressed" from="financeinfo" to="." method="_on_financeinfo_pressed"]
+[connection signal="pressed" from="campaignresultpopup/margin/vbox/okbutton" to="." method="_on_resultokbutton_pressed"]

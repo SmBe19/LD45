@@ -13,9 +13,15 @@ _global_script_classes=[ {
 "class": "City",
 "language": "GDScript",
 "path": "res://src/city.gd"
+}, {
+"base": "Reference",
+"class": "Office",
+"language": "GDScript",
+"path": "res://src/office.gd"
 } ]
 _global_script_class_icons={
-"City": ""
+"City": "",
+"Office": ""
 }
 
 [application]

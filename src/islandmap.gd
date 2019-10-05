@@ -12,11 +12,25 @@ func set_city(city: int):
 	active_city = city
 	citybutton = $citybuttons.get_children()[active_city]
 	citybutton.texture_normal = citybutton.texture_hover
+	set_labels()
+
+func set_labels():
 	var cityinfo: City = $"/root/Root".cities[active_city]
 	$cityinfo/vbox/cityname.text = cityinfo.name
-	$cityinfo/vbox/population.text = str("Pop: ", cityinfo.population)
-	$cityinfo/vbox/voters.text = str("Voters: ", cityinfo.voters)
+	$cityinfo/vbox/population.text = str("People: ", cityinfo.population)
+	$cityinfo/vbox/popularity.text = str("Popularity: ", cityinfo.public_popularity, "%")
+	$cityinfo/vbox/voters.text = str("Voters: ", cityinfo.public_voters)
+	$cityinfo/vbox/poll.text = str("(", int(round($"/root/Root".last_poll)), " s ago)")
+	$cityinfo/vbox/advertisement.text = str("Ad Effect: ", round(cityinfo.advertisement*100))
+	$cityinfo/vbox/movehere.disabled = active_city == $"/root/Root".current_city
 
+func _process(delta):
+	# TODO remove
+	# $"/root/Root".cities[active_city].poll()
+	set_labels()
 
 func _on_goback_pressed():
 	visible = false
+
+func _on_movehere_pressed():
+	$"/root/Root".move_to_city(active_city)

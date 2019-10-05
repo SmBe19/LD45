@@ -1,0 +1,130 @@
+[gd_scene load_steps=5 format=2]
+
+[ext_resource path="res://src/tweet.gd" type="Script" id=1]
+[ext_resource path="res://font/OpenSans-BoldItalic.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/popupbuttonfont.tres" type="DynamicFont" id=3]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 2 )
+
+[node name="Control" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 0.773773
+margin_right = 0.773804
+script = ExtResource( 1 )
+
+[node name="popup" type="PopupPanel" parent="."]
+visible = true
+margin_right = 362.0
+margin_bottom = 269.0
+popup_exclusive = true
+
+[node name="margin" type="MarginContainer" parent="popup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 358.0
+margin_bottom = 265.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="vbox" type="VBoxContainer" parent="popup/margin"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 342.0
+margin_bottom = 249.0
+custom_constants/separation = 12
+
+[node name="Label" type="Label" parent="popup/margin/vbox"]
+margin_right = 330.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 1 )
+text = "shoutr.io"
+align = 1
+
+[node name="tweet" type="TextEdit" parent="popup/margin/vbox"]
+margin_top = 79.0
+margin_right = 330.0
+margin_bottom = 196.0
+size_flags_vertical = 3
+context_menu_enabled = false
+wrap_enabled = true
+
+[node name="hbox" type="HBoxContainer" parent="popup/margin/vbox"]
+margin_top = 208.0
+margin_right = 330.0
+margin_bottom = 237.0
+custom_constants/separation = 20
+alignment = 2
+
+[node name="length" type="Label" parent="popup/margin/vbox/hbox"]
+margin_left = 144.0
+margin_top = 7.0
+margin_right = 181.0
+margin_bottom = 21.0
+text = "0/140"
+
+[node name="send" type="Button" parent="popup/margin/vbox/hbox"]
+margin_left = 201.0
+margin_right = 250.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 3 )
+text = "send"
+
+[node name="cancel" type="Button" parent="popup/margin/vbox/hbox"]
+margin_left = 270.0
+margin_right = 330.0
+margin_bottom = 29.0
+custom_fonts/font = ExtResource( 3 )
+text = "cancel"
+
+[node name="resultpopup" type="PopupPanel" parent="."]
+visible = true
+margin_left = 395.0
+margin_right = 715.0
+margin_bottom = 159.0
+popup_exclusive = true
+
+[node name="margin" type="MarginContainer" parent="resultpopup"]
+margin_left = 4.0
+margin_top = 4.0
+margin_right = 316.0
+margin_bottom = 155.0
+custom_constants/margin_right = 12
+custom_constants/margin_top = 12
+custom_constants/margin_left = 12
+custom_constants/margin_bottom = 12
+
+[node name="vbox" type="VBoxContainer" parent="resultpopup/margin"]
+margin_left = 12.0
+margin_top = 12.0
+margin_right = 300.0
+margin_bottom = 139.0
+
+[node name="Label" type="Label" parent="resultpopup/margin/vbox"]
+margin_right = 288.0
+margin_bottom = 67.0
+custom_fonts/font = SubResource( 1 )
+text = "shoutr.io"
+align = 1
+
+[node name="result" type="Label" parent="resultpopup/margin/vbox"]
+margin_top = 71.0
+margin_right = 288.0
+margin_bottom = 94.0
+custom_fonts/font = ExtResource( 3 )
+
+[node name="ok" type="Button" parent="resultpopup/margin/vbox"]
+margin_top = 98.0
+margin_right = 288.0
+margin_bottom = 127.0
+custom_fonts/font = ExtResource( 3 )
+text = "OK"
+[connection signal="about_to_show" from="popup" to="." method="_on_popup_about_to_show"]
+[connection signal="text_changed" from="popup/margin/vbox/tweet" to="." method="_on_tweet_text_changed"]
+[connection signal="pressed" from="popup/margin/vbox/hbox/send" to="." method="_on_send_pressed"]
+[connection signal="pressed" from="popup/margin/vbox/hbox/cancel" to="." method="_on_cancel_pressed"]
+[connection signal="pressed" from="resultpopup/margin/vbox/ok" to="." method="_on_ok_pressed"]

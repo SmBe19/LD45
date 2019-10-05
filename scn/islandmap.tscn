@@ -64,10 +64,10 @@ custom_fonts/font = ExtResource( 5 )
 text = "West Pointsmi"
 
 [node name="ombrim" type="Label" parent="citynames"]
-margin_left = 432.0
-margin_top = 363.0
-margin_right = 488.0
-margin_bottom = 383.0
+margin_left = 253.305
+margin_top = 141.887
+margin_right = 309.305
+margin_bottom = 161.887
 custom_fonts/font = ExtResource( 5 )
 text = "Ombrim"
 
@@ -80,10 +80,10 @@ custom_fonts/font = ExtResource( 5 )
 text = "Noyeo"
 
 [node name="skelmode" type="Label" parent="citynames"]
-margin_left = 242.0
-margin_top = 143.0
-margin_right = 307.0
-margin_bottom = 163.0
+margin_left = 421.5
+margin_top = 363.015
+margin_right = 486.5
+margin_bottom = 383.015
 custom_fonts/font = ExtResource( 5 )
 text = "Skelmode"
 
@@ -108,10 +108,10 @@ script = ExtResource( 7 )
 cityindex = 1
 
 [node name="ombrim" type="TextureButton" parent="citybuttons"]
-margin_left = 428.08
-margin_top = 333.534
-margin_right = 468.08
-margin_bottom = 373.534
+margin_left = 249.385
+margin_top = 112.421
+margin_right = 289.385
+margin_bottom = 152.421
 texture_hover = ExtResource( 6 )
 script = ExtResource( 7 )
 cityindex = 2
@@ -126,20 +126,19 @@ script = ExtResource( 7 )
 cityindex = 3
 
 [node name="skelmode" type="TextureButton" parent="citybuttons"]
-margin_left = 249.135
-margin_top = 111.009
-margin_right = 289.135
-margin_bottom = 151.009
+margin_left = 427.635
+margin_top = 333.829
+margin_right = 467.635
+margin_bottom = 373.829
 texture_hover = ExtResource( 6 )
 script = ExtResource( 7 )
 cityindex = 4
 
 [node name="cityinfo" type="Panel" parent="."]
-editor/display_folded = true
 margin_left = 645.0
 margin_top = 51.0
-margin_right = 770.0
-margin_bottom = 174.0
+margin_right = 778.0
+margin_bottom = 233.0
 
 [node name="vbox" type="VBoxContainer" parent="cityinfo"]
 margin_left = 10.0
@@ -160,12 +159,42 @@ margin_bottom = 44.0
 custom_fonts/font = ExtResource( 5 )
 text = "Pop: 1000"
 
-[node name="voters" type="Label" parent="cityinfo/vbox"]
+[node name="popularity" type="Label" parent="cityinfo/vbox"]
 margin_top = 48.0
 margin_right = 101.0
 margin_bottom = 68.0
 custom_fonts/font = ExtResource( 5 )
-text = "Votes: 0"
+text = "Popular: 0"
+
+[node name="voters" type="Label" parent="cityinfo/vbox"]
+margin_top = 72.0
+margin_right = 101.0
+margin_bottom = 92.0
+custom_fonts/font = ExtResource( 5 )
+text = "Voters: 0"
+
+[node name="advertisement" type="Label" parent="cityinfo/vbox"]
+margin_top = 96.0
+margin_right = 101.0
+margin_bottom = 116.0
+custom_fonts/font = ExtResource( 5 )
+text = "Ad Effect: 0"
+
+[node name="poll" type="Label" parent="cityinfo/vbox"]
+margin_top = 120.0
+margin_right = 101.0
+margin_bottom = 140.0
+custom_fonts/font = ExtResource( 5 )
+text = "(0 s ago)"
+
+[node name="movehere" type="Button" parent="cityinfo/vbox"]
+margin_top = 144.0
+margin_right = 101.0
+margin_bottom = 164.0
+focus_mode = 0
+enabled_focus_mode = 0
+text = "Move Here"
+flat = true
 
 [node name="goback" type="TextureButton" parent="."]
 margin_left = 731.474
@@ -178,4 +207,5 @@ texture_normal = ExtResource( 8 )
 [connection signal="cityclicked" from="citybuttons/ombrim" to="." method="set_city"]
 [connection signal="cityclicked" from="citybuttons/noyeo" to="." method="set_city"]
 [connection signal="cityclicked" from="citybuttons/skelmode" to="." method="set_city"]
+[connection signal="pressed" from="cityinfo/vbox/movehere" to="." method="_on_movehere_pressed"]
 [connection signal="pressed" from="goback" to="." method="_on_goback_pressed"]

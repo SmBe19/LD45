@@ -1,0 +1,94 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://src/pollinfo.gd" type="Script" id=1]
+[ext_resource path="res://img/hero.png" type="Texture" id=2]
+[ext_resource path="res://img/voteprogress.png" type="Texture" id=3]
+[ext_resource path="res://img/opponent.png" type="Texture" id=4]
+[ext_resource path="res://img/opponent2.png" type="Texture" id=5]
+[ext_resource path="res://font/OpenSans-Bold.ttf" type="DynamicFontData" id=6]
+
+[sub_resource type="DynamicFont" id=1]
+size = 48
+font_data = ExtResource( 6 )
+
+[node name="Root" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource( 1 )
+
+[node name="vbox" type="VBoxContainer" parent="."]
+margin_right = 284.0
+margin_bottom = 80.0
+custom_constants/separation = 25
+
+[node name="hero" type="HBoxContainer" parent="vbox"]
+margin_right = 295.0
+margin_bottom = 80.0
+custom_constants/separation = 15
+
+[node name="portrait" type="TextureRect" parent="vbox/hero"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 2 )
+
+[node name="center" type="CenterContainer" parent="vbox/hero"]
+margin_left = 95.0
+margin_right = 295.0
+margin_bottom = 80.0
+
+[node name="result" type="TextureProgress" parent="vbox/hero/center"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 60.0
+texture_progress = ExtResource( 3 )
+
+[node name="opponent1" type="HBoxContainer" parent="vbox"]
+margin_top = 105.0
+margin_right = 295.0
+margin_bottom = 185.0
+custom_constants/separation = 15
+
+[node name="portrait" type="TextureRect" parent="vbox/opponent1"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 4 )
+
+[node name="center" type="CenterContainer" parent="vbox/opponent1"]
+margin_left = 95.0
+margin_right = 295.0
+margin_bottom = 80.0
+
+[node name="result" type="TextureProgress" parent="vbox/opponent1/center"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 60.0
+texture_progress = ExtResource( 3 )
+
+[node name="opponent2" type="HBoxContainer" parent="vbox"]
+margin_top = 210.0
+margin_right = 295.0
+margin_bottom = 290.0
+custom_constants/separation = 15
+
+[node name="portrait" type="TextureRect" parent="vbox/opponent2"]
+margin_right = 80.0
+margin_bottom = 80.0
+texture = ExtResource( 5 )
+
+[node name="center" type="CenterContainer" parent="vbox/opponent2"]
+margin_left = 95.0
+margin_right = 295.0
+margin_bottom = 80.0
+
+[node name="result" type="TextureProgress" parent="vbox/opponent2/center"]
+margin_top = 20.0
+margin_right = 200.0
+margin_bottom = 60.0
+texture_progress = ExtResource( 3 )
+
+[node name="lastpoll" type="Label" parent="vbox"]
+margin_top = 315.0
+margin_right = 295.0
+margin_bottom = 382.0
+custom_fonts/font = SubResource( 1 )
+text = "(0 s ago)"
