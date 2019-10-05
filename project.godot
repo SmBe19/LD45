@@ -8,15 +8,27 @@
 
 config_version=4
 
-_global_script_classes=[  ]
+_global_script_classes=[ {
+"base": "Reference",
+"class": "City",
+"language": "GDScript",
+"path": "res://src/city.gd"
+} ]
 _global_script_class_icons={
-
+"City": ""
 }
 
 [application]
 
-config/name="LD45"
+config/name="Election Simulator 1984 Island Edition"
+run/main_scene="res://scn/main.tscn"
 config/icon="res://icon.png"
+
+[display]
+
+window/size/width=800
+window/size/height=480
+window/size/resizable=false
 
 [rendering]
 

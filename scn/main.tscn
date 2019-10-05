@@ -1,0 +1,71 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/main.gd" type="Script" id=1]
+[ext_resource path="res://img/islandmap.png" type="Texture" id=2]
+[ext_resource path="res://src/officeislandmap.gd" type="Script" id=3]
+[ext_resource path="res://img/office.png" type="Texture" id=4]
+[ext_resource path="res://img/flag.png" type="Texture" id=5]
+[ext_resource path="res://scn/islandmap.tscn" type="PackedScene" id=6]
+[ext_resource path="res://font/OpenSans-Light.ttf" type="DynamicFontData" id=7]
+
+[sub_resource type="DynamicFont" id=1]
+size = 10
+font_data = ExtResource( 7 )
+
+[node name="Root" type="Node2D"]
+script = ExtResource( 1 )
+
+[node name="officeislandmap" type="Sprite" parent="."]
+position = Vector2( 207.415, 167.938 )
+scale = Vector2( 0.25, 0.25 )
+texture = ExtResource( 2 )
+script = ExtResource( 3 )
+
+[node name="Button" type="Button" parent="officeislandmap"]
+margin_left = -360.0
+margin_top = -254.0
+margin_right = 386.0
+margin_bottom = 205.0
+flat = true
+
+[node name="office" type="Sprite" parent="."]
+position = Vector2( 400, 240 )
+texture = ExtResource( 4 )
+
+[node name="flag1" type="Sprite" parent="."]
+position = Vector2( 355.996, 289.965 )
+rotation = 0.356281
+scale = Vector2( 0.0964418, 0.0964418 )
+texture = ExtResource( 5 )
+
+[node name="flag2" type="Sprite" parent="."]
+position = Vector2( 249.214, 293.06 )
+rotation = -0.545382
+scale = Vector2( 0.0964418, 0.0964418 )
+texture = ExtResource( 5 )
+
+[node name="islandmap" parent="." instance=ExtResource( 6 )]
+visible = false
+
+[node name="personname" type="Label" parent="."]
+margin_left = 412.113
+margin_top = 355.264
+margin_right = 475.113
+margin_bottom = 369.264
+rect_rotation = -3.19061
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Mr Blub"
+
+[node name="officename" type="Label" parent="."]
+margin_left = 417.491
+margin_top = 364.226
+margin_right = 480.491
+margin_bottom = 378.226
+rect_rotation = -3.19061
+custom_fonts/font = SubResource( 1 )
+custom_colors/font_color = Color( 0, 0, 0, 1 )
+text = "Nobody"
+[connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
+[connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
+[connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]
