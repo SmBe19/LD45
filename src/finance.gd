@@ -2,6 +2,7 @@ extends Control
 
 func _on_cancel_pressed():
 	$popup.hide()
+	$"/root/Root/audio/cancel".play()
 
 func _on_localad_pressed():
 	$"/root/Root".local_ad(100, 1)

@@ -5,6 +5,7 @@ var active_city: int
 func show():
 	visible = true
 	set_city($"/root/Root".current_city)
+	$"/root/Root/audio/click".play()
 
 func set_city(city: int):
 	var citybutton: TextureButton = $citybuttons.get_children()[active_city]
@@ -32,7 +33,9 @@ func _process(delta):
 
 func _on_goback_pressed():
 	hide()
+	$"/root/Root/audio/click".play()
 
 func _on_movehere_pressed():
 	$"/root/Root".move_to_city(active_city)
 	hide()
+	$"/root/Root/audio/click".play()

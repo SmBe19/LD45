@@ -6,6 +6,7 @@ var last_tweet = []
 
 func _on_cancel_pressed():
 	$popup.hide()
+	$"/root/Root/audio/cancel".play()
 
 func handle_city(city, value, inside):
 	var current_campaign = $"/root/Root".current_campaign
@@ -69,6 +70,7 @@ func _on_send_pressed():
 	$resultpopup.show()
 	$resultpopup.hide()
 	$resultpopup.popup_centered()
+	$"/root/Root/audio/sendtweet".play()
 
 func _on_popup_about_to_show():
 	$popup/margin/vbox/tweet.text = ""
@@ -78,6 +80,8 @@ func _on_tweet_text_changed():
 	var length = $popup/margin/vbox/tweet.text.length()
 	$popup/margin/vbox/hbox/length.text = str(length, "/140")
 	$popup/margin/vbox/hbox/send.disabled = length > 140
+	$"/root/Root/audio/tweettype".play()
 
 func _on_ok_pressed():
 	$resultpopup.hide()
+	$"/root/Root/audio/click".play()

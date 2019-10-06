@@ -84,6 +84,7 @@ func finish_campaign():
 	$campaigninfo/campaigntime.hide()
 	var res = get_voters()
 	if res[0]*2 > res[1]:
+		$"/root/Root/audio/win".play()
 		if current_office != null:
 			if current_office.city == current_campaign.city:
 				current_office.is_held = false
@@ -92,6 +93,7 @@ func finish_campaign():
 		update_namelabels()
 		$campaignresultpopup/margin/vbox/label.text = str("Congratulations, you won the election. You are now ", current_office.name, "! You had ", res[0], " votes out of a total of ", res[1], ".")
 	else:
+		$"/root/Root/audio/lose".play()
 		$campaignresultpopup/margin/vbox/label.text = str("You lost the election! You had ", res[0], " votes out of a total of ", res[1], ".")
 	publish_poll()
 	current_campaign = null
@@ -145,10 +147,12 @@ func start_campaign(office: Office):
 	last_poll = 0
 	$pollinfo.show()
 	$pollinfo.set_poll(0, 2, 1)
+	$"/root/Root/audio/sendtweet".play()
 
 func cancel_start_campaign():
 	$campaignpopup.hide()
 	$campaigninfo/startrun.show()
+	$"/root/Root/audio/cancel".play()
 
 func _on_startrun_pressed():
 	if current_campaign == null:
@@ -156,11 +160,14 @@ func _on_startrun_pressed():
 		$campaignpopup.show()
 		$campaignpopup.hide()
 		$campaignpopup.popup_centered()
+		$"/root/Root/audio/click".play()
 	else:
 		campaign_time = 1
+		$"/root/Root/audio/click".play()
 
 func _on_resultokbutton_pressed():
 	$campaignresultpopup.hide()
+	$"/root/Root/audio/click".play()
 
 func publish_poll():
 	last_poll = 0
@@ -185,24 +192,35 @@ func publish_poll():
 func _on_newpoll_pressed():
 	if money >= 20:
 		money -= 20
+		$"/root/Root/audio/sendtweet".play()
 		publish_poll()
+	else:
+		$"/root/Root/audio/nope".play()
 
 func _on_financeinfo_pressed():
 	$finance/popup.popup_centered()
+	$"/root/Root/audio/click".play()
 
 func local_ad(price, multiplier):
 	if money >= price:
 		money -= price
 		cities[current_city].advertisement += multiplier
+		$"/root/Root/audio/sendtweet".play()
+	else:
+		$"/root/Root/audio/nope".play()
 
 func national_ad(price, multiplier):
 	if money >= price:
 		money -= price
 		for city in cities:
 			city.advertisement += multiplier
+		$"/root/Root/audio/sendtweet".play()
+	else:
+		$"/root/Root/audio/nope".play()
 
 func _on_newtweet_pressed():
 	$tweet/popup.popup_centered()
+	$"/root/Root/audio/click".play()
 
 func move_to_city(city):
 	if current_city != city:

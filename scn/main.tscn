@@ -1,4 +1,4 @@
-[gd_scene load_steps=22 format=2]
+[gd_scene load_steps=29 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
@@ -15,6 +15,13 @@
 [ext_resource path="res://scn/islandmap.tscn" type="PackedScene" id=13]
 [ext_resource path="res://scn/intro.tscn" type="PackedScene" id=14]
 [ext_resource path="res://scn/outro.tscn" type="PackedScene" id=15]
+[ext_resource path="res://snd/click.wav" type="AudioStream" id=16]
+[ext_resource path="res://snd/cancel.wav" type="AudioStream" id=17]
+[ext_resource path="res://snd/sendtweet.wav" type="AudioStream" id=18]
+[ext_resource path="res://snd/tweettype.wav" type="AudioStream" id=19]
+[ext_resource path="res://snd/nope.wav" type="AudioStream" id=20]
+[ext_resource path="res://snd/win.wav" type="AudioStream" id=21]
+[ext_resource path="res://snd/lose.wav" type="AudioStream" id=22]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -270,6 +277,35 @@ text = "OK"
 [node name="outrotimer" type="Timer" parent="."]
 wait_time = 5.0
 one_shot = true
+
+[node name="audio" type="Node" parent="."]
+
+[node name="click" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 16 )
+volume_db = -3.0
+bus = "Effects"
+
+[node name="cancel" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 17 )
+bus = "Effects"
+
+[node name="sendtweet" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 18 )
+bus = "Effects"
+
+[node name="tweettype" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 19 )
+bus = "Effects"
+
+[node name="nope" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 20 )
+bus = "Effects"
+
+[node name="win" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 21 )
+
+[node name="lose" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 22 )
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]

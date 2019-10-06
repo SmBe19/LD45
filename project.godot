@@ -26,7 +26,7 @@ _global_script_class_icons={
 
 [application]
 
-config/name="Election Simulator 1984 Island Edition"
+config/name="Election Simulator 2019 Island Edition"
 run/main_scene="res://scn/main.tscn"
 config/icon="res://icon.png"
 

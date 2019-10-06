@@ -8,3 +8,4 @@ func _ready():
 
 func firecityclicked():
 	emit_signal("cityclicked", cityindex)
+	$"/root/Root/audio/click".play()

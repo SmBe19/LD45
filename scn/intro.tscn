@@ -44,7 +44,7 @@ custom_constants/separation = 20
 margin_right = 746.0
 margin_bottom = 23.0
 custom_fonts/font = SubResource( 2 )
-text = "Welcome to Election Simulator 1984 Island Edition!"
+text = "Welcome to Election Simulator 2019 Island Edition!"
 align = 1
 
 [node name="Label2" type="Label" parent="margin/vbox"]
