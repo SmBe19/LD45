@@ -1,4 +1,4 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=34 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
@@ -26,6 +26,7 @@
 [ext_resource path="res://snd/nope.wav" type="AudioStream" id=24]
 [ext_resource path="res://snd/win.wav" type="AudioStream" id=25]
 [ext_resource path="res://snd/lose.wav" type="AudioStream" id=26]
+[ext_resource path="res://snd/LD45_001.ogg" type="AudioStream" id=27]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -303,7 +304,6 @@ wait_time = 5.0
 one_shot = true
 
 [node name="audio" type="Node" parent="."]
-editor/display_folded = true
 
 [node name="click" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 20 )
@@ -331,6 +331,11 @@ stream = ExtResource( 25 )
 
 [node name="lose" type="AudioStreamPlayer" parent="audio"]
 stream = ExtResource( 26 )
+
+[node name="electionmusic" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 27 )
+volume_db = -1.5
+bus = "Music"
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]

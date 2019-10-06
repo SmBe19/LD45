@@ -148,6 +148,7 @@ func start_campaign(office: Office):
 	$pollinfo.show()
 	$pollinfo.set_poll(0, 2, 1)
 	$"/root/Root/audio/sendtweet".play()
+	$"/root/Root/audio/electionmusic".play()
 
 func cancel_start_campaign():
 	$campaignpopup.hide()
@@ -164,6 +165,7 @@ func _on_startrun_pressed():
 	else:
 		campaign_time = 1
 		$"/root/Root/audio/click".play()
+		$"/root/Root/audio/electionmusic".stop()
 
 func _on_resultokbutton_pressed():
 	$campaignresultpopup.hide()
