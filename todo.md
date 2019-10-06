@@ -15,7 +15,7 @@ X Move to different town (Islandmap)
 X Influence should play a role in getting voters/popularity
 X Balance stuff
 X Intro (e.g. ask name)
-- Sounds
+X Sounds
 - Music
 - Better Feedback (e.g. polls)
 - TV Debate

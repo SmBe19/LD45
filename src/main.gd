@@ -242,3 +242,9 @@ func _on_outrotimer_timeout():
 func _on_campaignresultpopup_popup_hide():
 	if current_office != null and current_office.name == "President":
 		$outrotimer.start()
+
+func _on_sound_toggled(button_pressed):
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Effects"), button_pressed)
+
+func _on_music_toggled(button_pressed):
+	AudioServer.set_bus_mute(AudioServer.get_bus_index("Music"), button_pressed)
