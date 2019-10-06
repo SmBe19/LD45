@@ -1,4 +1,4 @@
-# Election Simulator 1984 Island Edition
+# Election Simulator 2019 Island Edition
 
 You want to become a politician. You do not yet have any public office, and no one knows you. You can run for different public offices, take different actions to promote yourself and help your campaign. Your goal is to become the President of your country.
 
