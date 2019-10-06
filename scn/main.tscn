@@ -1,4 +1,4 @@
-[gd_scene load_steps=34 format=2]
+[gd_scene load_steps=35 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
@@ -27,6 +27,7 @@
 [ext_resource path="res://snd/win.wav" type="AudioStream" id=25]
 [ext_resource path="res://snd/lose.wav" type="AudioStream" id=26]
 [ext_resource path="res://snd/LD45_001.ogg" type="AudioStream" id=27]
+[ext_resource path="res://snd/LD45_002.ogg" type="AudioStream" id=28]
 
 [sub_resource type="DynamicFont" id=1]
 size = 11
@@ -83,11 +84,11 @@ scale = Vector2( 0.0964418, 0.0964418 )
 texture = ExtResource( 5 )
 
 [node name="personname" type="Label" parent="."]
-margin_left = 407.394
-margin_top = 356.134
-margin_right = 498.394
-margin_bottom = 372.134
-rect_rotation = -3.19061
+margin_left = 406.64
+margin_top = 356.511
+margin_right = 497.64
+margin_bottom = 372.511
+rect_rotation = -2.70316
 hint_tooltip = "This is your name."
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
@@ -95,11 +96,11 @@ custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mr Blub"
 
 [node name="officename" type="Label" parent="."]
-margin_left = 410.491
-margin_top = 364.971
-margin_right = 498.491
-margin_bottom = 391.971
-rect_rotation = -3.19061
+margin_left = 410.66
+margin_top = 366.132
+margin_right = 509.66
+margin_bottom = 393.132
+rect_rotation = -3.65864
 hint_tooltip = "Your highest office in this city."
 mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
@@ -336,6 +337,10 @@ stream = ExtResource( 26 )
 stream = ExtResource( 27 )
 volume_db = -1.5
 bus = "Music"
+
+[node name="waitmusic" type="AudioStreamPlayer" parent="audio"]
+stream = ExtResource( 28 )
+autoplay = true
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]

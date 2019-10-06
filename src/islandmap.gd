@@ -24,6 +24,7 @@ func set_labels():
 	$cityinfo/vbox/poll.text = str("(", int(round($"/root/Root".last_poll)), " s ago)")
 	$cityinfo/vbox/advertisement.text = str("Ad Effect: ", round(cityinfo.advertisement*100))
 	$cityinfo/vbox/donations.text = str("Donat.: $ ", cityinfo.total_donations)
+	$cityinfo/vbox/office.text = cityinfo.current_office.name.replace(str(cityinfo.name, " "), "") if cityinfo.current_office != null else "Nobody"
 	$cityinfo/vbox/movehere.disabled = active_city == $"/root/Root".current_city or $"/root/Root".current_campaign != null
 
 func _process(delta):

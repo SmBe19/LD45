@@ -17,7 +17,7 @@ func handle_city(city, value, inside):
 			city.advertisement += 2
 	elif value < 0:
 		if inside:
-			city.advertisement = 0.0
+			city.advertisement *= 0.5
 			city.popularity *= pow(2, value)
 			if campaign:
 				city.voters *= pow(2, value*0.2)
@@ -27,7 +27,7 @@ func handle_city(city, value, inside):
 		if inside:
 			city.popularity += min(1, (pow(2, value) - 1) / 16.0)
 			if campaign:
-				city.voters += min(1, (pow(2, value*0.4) - 1) / 32.0)
+				city.voters += min(1, (pow(2, pow(value, 0.75)*0.6) - 1) / 32.0)
 		else:
 			city.popularity += min(1, (pow(2, value*0.3) - 1) / 16.0)
 	return city.popularity - old_pop

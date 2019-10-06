@@ -138,23 +138,23 @@ cityindex = 4
 margin_left = 645.0
 margin_top = 51.0
 margin_right = 778.0
-margin_bottom = 255.0
+margin_bottom = 279.0
 
 [node name="vbox" type="VBoxContainer" parent="cityinfo"]
 margin_left = 10.0
 margin_top = 10.0
-margin_right = 10.0
-margin_bottom = 10.0
+margin_right = 124.0
+margin_bottom = 222.0
 
 [node name="cityname" type="Label" parent="cityinfo/vbox"]
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 20.0
 custom_fonts/font = SubResource( 2 )
 text = "West Pointsmi"
 
 [node name="population" type="Label" parent="cityinfo/vbox"]
 margin_top = 24.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 44.0
 hint_tooltip = "Population"
 mouse_filter = 1
@@ -163,7 +163,7 @@ text = "Pop: 1000"
 
 [node name="voters" type="Label" parent="cityinfo/vbox"]
 margin_top = 48.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 68.0
 hint_tooltip = "Number of voters for the current campaign."
 mouse_filter = 1
@@ -172,7 +172,7 @@ text = "Voters: 0"
 
 [node name="popularity" type="Label" parent="cityinfo/vbox"]
 margin_top = 72.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 92.0
 hint_tooltip = "Popularity in the population of this city."
 mouse_filter = 1
@@ -181,7 +181,7 @@ text = "Popular: 0"
 
 [node name="advertisement" type="Label" parent="cityinfo/vbox"]
 margin_top = 96.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 116.0
 hint_tooltip = "Current effect of advertisement"
 mouse_filter = 1
@@ -190,7 +190,7 @@ text = "Ad Effect: 0"
 
 [node name="donations" type="Label" parent="cityinfo/vbox"]
 margin_top = 120.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 140.0
 hint_tooltip = "Total Donations"
 mouse_filter = 1
@@ -199,17 +199,26 @@ text = "Donat.: $ 0"
 
 [node name="poll" type="Label" parent="cityinfo/vbox"]
 margin_top = 144.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 164.0
 hint_tooltip = "Last time the voters and popularity were updated."
 mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "(0 s ago)"
 
-[node name="movehere" type="Button" parent="cityinfo/vbox"]
+[node name="office" type="Label" parent="cityinfo/vbox"]
 margin_top = 168.0
-margin_right = 101.0
+margin_right = 114.0
 margin_bottom = 188.0
+hint_tooltip = "Current highest office in the city."
+mouse_filter = 1
+custom_fonts/font = ExtResource( 5 )
+clip_text = true
+
+[node name="movehere" type="Button" parent="cityinfo/vbox"]
+margin_top = 192.0
+margin_right = 114.0
+margin_bottom = 212.0
 hint_tooltip = "Move to this city, leaving the old one behind."
 focus_mode = 0
 enabled_focus_mode = 0

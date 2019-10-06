@@ -21,7 +21,7 @@ func _ready():
 		var new_city = City.new()
 		new_city.initvals(cityname, current_population)
 		var influence = 12
-		for officename in ["Memb. Parliament", "Vegetables Minister", "Major"]:
+		for officename in ["Parliament Memb.", "Vegetables Minister", "Major"]:
 			var new_office = Office.new()
 			new_office.initvals(cityname + " " + officename, new_city, int(influence))
 			new_city.offices.append(new_office)
@@ -41,7 +41,7 @@ func _ready():
 	cities[current_city].is_hometown = true
 	
 	var current_influence = 100
-	for officename in ["Memb. National Parliament", "Dinosaur Minister", "President"]:
+	for officename in ["National Parliament Memb.", "Dinosaur Minister", "President"]:
 		var new_office = Office.new()
 		new_office.initvals(officename, null, current_influence)
 		offices.append(new_office)
@@ -82,6 +82,7 @@ func get_voters():
 
 func finish_campaign():
 	$campaigninfo/campaigntime.hide()
+	$"/root/Root/audio/waitmusic".set_stream_paused(false)
 	var res = get_voters()
 	if res[0]*2 > res[1]:
 		$"/root/Root/audio/win".play()
@@ -148,6 +149,7 @@ func start_campaign(office: Office):
 	$pollinfo.show()
 	$pollinfo.set_poll(0, 2, 1)
 	$"/root/Root/audio/sendtweet".play()
+	$"/root/Root/audio/waitmusic".set_stream_paused(true)
 	$"/root/Root/audio/electionmusic".play()
 
 func cancel_start_campaign():

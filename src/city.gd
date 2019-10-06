@@ -34,6 +34,7 @@ func update(delta: float, global_offices: Array, current_campaign):
 	for office in offices:
 		if office.is_held:
 			old_influence += office.influence
+			current_office = office
 	for office in global_offices:
 		if office.is_held:
 			old_influence += office.influence
@@ -60,7 +61,7 @@ func update(delta: float, global_offices: Array, current_campaign):
 	# Voters
 	if current_campaign != null and (current_campaign.city == null or current_campaign.city == self):
 		var difficulty = pow(max(1, current_campaign.influence - old_influence), 2)
-		voters += delta * pow(log_popularity(), 2) * 10 / difficulty
+		voters += delta * pow(log_popularity(), 2) * 15 / difficulty
 		voters += delta * pow(advertisement * 128 / population, 1/4.0) * 0.75 / difficulty
 		voters = clamp(voters, 0, 1)
 
