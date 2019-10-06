@@ -1,0 +1,119 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://src/intro.gd" type="Script" id=1]
+[ext_resource path="res://font/OpenSans-Regular.ttf" type="DynamicFontData" id=2]
+[ext_resource path="res://font/OpenSans-Bold.ttf" type="DynamicFontData" id=3]
+[ext_resource path="res://img/flag.png" type="Texture" id=4]
+
+[sub_resource type="DynamicFont" id=2]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=1]
+size = 24
+font_data = ExtResource( 3 )
+
+[sub_resource type="DynamicFont" id=3]
+font_data = ExtResource( 2 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 2 )
+
+[node name="Root" type="PanelContainer"]
+margin_right = 800.0
+margin_bottom = 480.0
+script = ExtResource( 1 )
+
+[node name="margin" type="MarginContainer" parent="."]
+margin_left = 7.0
+margin_top = 7.0
+margin_right = 793.0
+margin_bottom = 473.0
+custom_constants/margin_right = 20
+custom_constants/margin_top = 20
+custom_constants/margin_left = 20
+custom_constants/margin_bottom = 20
+
+[node name="vbox" type="VBoxContainer" parent="margin"]
+margin_left = 20.0
+margin_top = 20.0
+margin_right = 766.0
+margin_bottom = 446.0
+custom_constants/separation = 20
+
+[node name="Label" type="Label" parent="margin/vbox"]
+margin_right = 746.0
+margin_bottom = 23.0
+custom_fonts/font = SubResource( 2 )
+text = "Welcome to Election Simulator 1984 Island Edition!"
+align = 1
+
+[node name="Label2" type="Label" parent="margin/vbox"]
+margin_top = 43.0
+margin_right = 746.0
+margin_bottom = 66.0
+custom_fonts/font = SubResource( 2 )
+text = "Your goal is to become president of the little island of"
+align = 1
+
+[node name="mariama" type="Label" parent="margin/vbox"]
+margin_top = 86.0
+margin_right = 746.0
+margin_bottom = 120.0
+custom_fonts/font = SubResource( 1 )
+text = "Mariama"
+align = 1
+
+[node name="flag" type="TextureRect" parent="margin/vbox"]
+margin_top = 140.0
+margin_right = 746.0
+margin_bottom = 330.0
+size_flags_vertical = 3
+texture = ExtResource( 4 )
+expand = true
+stretch_mode = 6
+
+[node name="Label3" type="Label" parent="margin/vbox"]
+margin_top = 350.0
+margin_right = 746.0
+margin_bottom = 373.0
+custom_fonts/font = SubResource( 2 )
+text = "Run first for city offices, then take over the national government."
+align = 1
+
+[node name="margin" type="MarginContainer" parent="margin/vbox"]
+margin_top = 393.0
+margin_right = 746.0
+margin_bottom = 426.0
+custom_constants/margin_right = 100
+custom_constants/margin_left = 100
+
+[node name="hbox" type="HBoxContainer" parent="margin/vbox/margin"]
+margin_left = 100.0
+margin_right = 646.0
+margin_bottom = 33.0
+custom_constants/separation = 20
+
+[node name="Label4" type="Label" parent="margin/vbox/margin/hbox"]
+margin_top = 5.0
+margin_right = 184.0
+margin_bottom = 28.0
+custom_fonts/font = SubResource( 2 )
+text = "Please enter your name:"
+align = 1
+
+[node name="name" type="LineEdit" parent="margin/vbox/margin/hbox"]
+margin_left = 204.0
+margin_right = 484.0
+margin_bottom = 33.0
+size_flags_horizontal = 3
+custom_fonts/font = SubResource( 3 )
+text = "Mr Blub"
+caret_blink = true
+
+[node name="ok" type="Button" parent="margin/vbox/margin/hbox"]
+margin_left = 504.0
+margin_right = 546.0
+margin_bottom = 33.0
+custom_fonts/font = SubResource( 4 )
+text = " OK "
+[connection signal="pressed" from="margin/vbox/margin/hbox/ok" to="." method="_on_ok_pressed"]

@@ -14,7 +14,7 @@ X Tweet Stuff (Phone)
 X Move to different town (Islandmap)
 X Influence should play a role in getting voters/popularity
 X Balance stuff
-- Intro (e.g. ask name)
+X Intro (e.g. ask name)
 - Sounds
 - Music
 - Better Feedback (e.g. polls)

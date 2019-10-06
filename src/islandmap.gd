@@ -31,7 +31,8 @@ func _process(delta):
 	set_labels()
 
 func _on_goback_pressed():
-	visible = false
+	hide()
 
 func _on_movehere_pressed():
 	$"/root/Root".move_to_city(active_city)
+	hide()

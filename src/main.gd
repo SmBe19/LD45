@@ -49,6 +49,7 @@ func _ready():
 	
 	update_namelabels()
 	prepare_campaign_popup()
+	$intro.show()
 
 func update_namelabels():
 	$personname.text = personname
@@ -216,3 +217,10 @@ func move_to_city(city):
 		cities[current_city].is_hometown = true
 		update_namelabels()
 		prepare_campaign_popup()
+
+func _on_outrotimer_timeout():
+	$outro.show_outro(personname)
+
+func _on_campaignresultpopup_popup_hide():
+	if current_office != null and current_office.name == "President":
+		$outrotimer.start()

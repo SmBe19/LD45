@@ -1,4 +1,4 @@
-[gd_scene load_steps=20 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
@@ -13,9 +13,11 @@
 [ext_resource path="res://scn/finance.tscn" type="PackedScene" id=11]
 [ext_resource path="res://scn/tweet.tscn" type="PackedScene" id=12]
 [ext_resource path="res://scn/islandmap.tscn" type="PackedScene" id=13]
+[ext_resource path="res://scn/intro.tscn" type="PackedScene" id=14]
+[ext_resource path="res://scn/outro.tscn" type="PackedScene" id=15]
 
 [sub_resource type="DynamicFont" id=1]
-size = 10
+size = 11
 font_data = ExtResource( 6 )
 
 [sub_resource type="DynamicFont" id=2]
@@ -49,6 +51,7 @@ margin_left = -360.0
 margin_top = -254.0
 margin_right = 386.0
 margin_bottom = 205.0
+hint_tooltip = "Island Overview"
 flat = true
 
 [node name="office" type="Sprite" parent="."]
@@ -68,26 +71,31 @@ scale = Vector2( 0.0964418, 0.0964418 )
 texture = ExtResource( 5 )
 
 [node name="personname" type="Label" parent="."]
-margin_left = 403.706
-margin_top = 356.441
-margin_right = 494.706
-margin_bottom = 370.441
+margin_left = 407.394
+margin_top = 356.134
+margin_right = 498.394
+margin_bottom = 372.134
 rect_rotation = -3.19061
+hint_tooltip = "This is your name."
+mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 text = "Mr Blub"
 
 [node name="officename" type="Label" parent="."]
-margin_left = 408.647
+margin_left = 410.491
 margin_top = 364.971
-margin_right = 496.647
-margin_bottom = 387.971
+margin_right = 498.491
+margin_bottom = 391.971
 rect_rotation = -3.19061
+hint_tooltip = "Your highest office in this city."
+mouse_filter = 1
 custom_fonts/font = SubResource( 1 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 custom_constants/line_spacing = -5
 text = "Nobody
 Blub"
+valign = 1
 autowrap = true
 
 [node name="money" type="Label" parent="."]
@@ -95,6 +103,7 @@ margin_left = 494.85
 margin_top = 304.35
 margin_right = 590.85
 margin_bottom = 327.35
+hint_tooltip = "Amount of money you currently have."
 custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0.4, 1, 0.45098, 1 )
 text = "$ 0"
@@ -181,7 +190,7 @@ margin_left = 475.0
 margin_top = 262.0
 margin_right = 608.0
 margin_bottom = 342.0
-hint_tooltip = "Finance Info"
+hint_tooltip = "Finance Info & Advertisement"
 focus_mode = 0
 enabled_focus_mode = 0
 flat = true
@@ -209,12 +218,20 @@ margin_left = 357.0
 margin_top = 14.0
 margin_right = 533.0
 margin_bottom = 48.0
+hint_tooltip = "Name of the city you are currently living in."
+mouse_filter = 1
 custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0.619608, 0.592157, 0.278431, 1 )
 text = "Cityname"
 align = 1
 
 [node name="islandmap" parent="." instance=ExtResource( 13 )]
+visible = false
+
+[node name="intro" parent="." instance=ExtResource( 14 )]
+visible = false
+
+[node name="outro" parent="." instance=ExtResource( 15 )]
 visible = false
 
 [node name="campaignresultpopup" type="PopupPanel" parent="."]
@@ -249,6 +266,10 @@ margin_top = 18.0
 margin_right = 225.0
 margin_bottom = 38.0
 text = "OK"
+
+[node name="outrotimer" type="Timer" parent="."]
+wait_time = 5.0
+one_shot = true
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]
 [connection signal="mouse_exited" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_exited"]
 [connection signal="pressed" from="officeislandmap/Button" to="islandmap" method="show"]
@@ -256,4 +277,6 @@ text = "OK"
 [connection signal="pressed" from="newpoll" to="." method="_on_newpoll_pressed"]
 [connection signal="pressed" from="newtweet" to="." method="_on_newtweet_pressed"]
 [connection signal="pressed" from="financeinfo" to="." method="_on_financeinfo_pressed"]
+[connection signal="popup_hide" from="campaignresultpopup" to="." method="_on_campaignresultpopup_popup_hide"]
 [connection signal="pressed" from="campaignresultpopup/margin/vbox/okbutton" to="." method="_on_resultokbutton_pressed"]
+[connection signal="timeout" from="outrotimer" to="." method="_on_outrotimer_timeout"]

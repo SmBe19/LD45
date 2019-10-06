@@ -53,7 +53,7 @@ func update(delta: float, global_offices: Array, current_campaign):
 	# Advertisement
 	popularity += delta * pow(advertisement * 128 / population, 0.4) / 40.0
 	advertisement = max(0, advertisement - max(1, advertisement) * delta / 10.0)
-	
+
 	# Popularity Clamp
 	popularity = clamp(popularity, 1, 100)
 
@@ -62,6 +62,8 @@ func update(delta: float, global_offices: Array, current_campaign):
 		var difficulty = pow(max(1, current_campaign.influence - old_influence), 2)
 		voters += delta * pow(log_popularity(), 2) * 10 / difficulty
 		voters += delta * pow(advertisement * 128 / population, 1/4.0) * 0.75 / difficulty
+		# TODO remove
+		voters += delta
 		voters = clamp(voters, 0, 1)
 
 func poll():

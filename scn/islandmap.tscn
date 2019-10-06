@@ -156,6 +156,8 @@ text = "West Pointsmi"
 margin_top = 24.0
 margin_right = 101.0
 margin_bottom = 44.0
+hint_tooltip = "Population"
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Pop: 1000"
 
@@ -163,6 +165,8 @@ text = "Pop: 1000"
 margin_top = 48.0
 margin_right = 101.0
 margin_bottom = 68.0
+hint_tooltip = "Number of voters for the current campaign."
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Voters: 0"
 
@@ -170,6 +174,8 @@ text = "Voters: 0"
 margin_top = 72.0
 margin_right = 101.0
 margin_bottom = 92.0
+hint_tooltip = "Popularity in the population of this city."
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Popular: 0"
 
@@ -177,6 +183,8 @@ text = "Popular: 0"
 margin_top = 96.0
 margin_right = 101.0
 margin_bottom = 116.0
+hint_tooltip = "Current effect of advertisement"
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Ad Effect: 0"
 
@@ -184,6 +192,8 @@ text = "Ad Effect: 0"
 margin_top = 120.0
 margin_right = 101.0
 margin_bottom = 140.0
+hint_tooltip = "Total Donations"
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "Donat.: $ 0"
 
@@ -191,6 +201,8 @@ text = "Donat.: $ 0"
 margin_top = 144.0
 margin_right = 101.0
 margin_bottom = 164.0
+hint_tooltip = "Last time the voters and popularity were updated."
+mouse_filter = 1
 custom_fonts/font = ExtResource( 5 )
 text = "(0 s ago)"
 
@@ -198,6 +210,7 @@ text = "(0 s ago)"
 margin_top = 168.0
 margin_right = 101.0
 margin_bottom = 188.0
+hint_tooltip = "Move to this city, leaving the old one behind."
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Move Here"
@@ -208,6 +221,7 @@ margin_left = 731.474
 margin_top = 420.016
 margin_right = 771.474
 margin_bottom = 460.016
+hint_tooltip = "Go back to the office."
 texture_normal = ExtResource( 8 )
 [connection signal="cityclicked" from="citybuttons/fort_eariio" to="." method="set_city"]
 [connection signal="cityclicked" from="citybuttons/west_pointsmi" to="." method="set_city"]
