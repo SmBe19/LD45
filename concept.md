@@ -7,7 +7,7 @@ The game takes place in Mariama, a small island country in the middle of the Atl
 
 ## Political System
 The country is very small and has only two levels of government. One is on town level, the other is national.
-Elections use the majority system. This can be exploited (e.g. by supporting a similar candidate to your opponent).
+Elections use the majority system.
 On all levels, we have the legislative and executive branches and the judiciary.
 You can run for the following offices:
  - City Parliament
@@ -24,5 +24,4 @@ You can take the following actions:
  - Order poll
  - Tweet (Shoutr.io)
  - Advertisement campaign
- - Donate money to opponent
  - TV debate

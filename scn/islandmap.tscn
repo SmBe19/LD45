@@ -138,7 +138,7 @@ cityindex = 4
 margin_left = 645.0
 margin_top = 51.0
 margin_right = 778.0
-margin_bottom = 233.0
+margin_bottom = 255.0
 
 [node name="vbox" type="VBoxContainer" parent="cityinfo"]
 margin_left = 10.0
@@ -159,19 +159,19 @@ margin_bottom = 44.0
 custom_fonts/font = ExtResource( 5 )
 text = "Pop: 1000"
 
-[node name="popularity" type="Label" parent="cityinfo/vbox"]
+[node name="voters" type="Label" parent="cityinfo/vbox"]
 margin_top = 48.0
 margin_right = 101.0
 margin_bottom = 68.0
 custom_fonts/font = ExtResource( 5 )
-text = "Popular: 0"
+text = "Voters: 0"
 
-[node name="voters" type="Label" parent="cityinfo/vbox"]
+[node name="popularity" type="Label" parent="cityinfo/vbox"]
 margin_top = 72.0
 margin_right = 101.0
 margin_bottom = 92.0
 custom_fonts/font = ExtResource( 5 )
-text = "Voters: 0"
+text = "Popular: 0"
 
 [node name="advertisement" type="Label" parent="cityinfo/vbox"]
 margin_top = 96.0
@@ -180,17 +180,24 @@ margin_bottom = 116.0
 custom_fonts/font = ExtResource( 5 )
 text = "Ad Effect: 0"
 
-[node name="poll" type="Label" parent="cityinfo/vbox"]
+[node name="donations" type="Label" parent="cityinfo/vbox"]
 margin_top = 120.0
 margin_right = 101.0
 margin_bottom = 140.0
 custom_fonts/font = ExtResource( 5 )
-text = "(0 s ago)"
+text = "Donat.: $ 0"
 
-[node name="movehere" type="Button" parent="cityinfo/vbox"]
+[node name="poll" type="Label" parent="cityinfo/vbox"]
 margin_top = 144.0
 margin_right = 101.0
 margin_bottom = 164.0
+custom_fonts/font = ExtResource( 5 )
+text = "(0 s ago)"
+
+[node name="movehere" type="Button" parent="cityinfo/vbox"]
+margin_top = 168.0
+margin_right = 101.0
+margin_bottom = 188.0
 focus_mode = 0
 enabled_focus_mode = 0
 text = "Move Here"

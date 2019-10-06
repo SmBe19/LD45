@@ -22,7 +22,8 @@ func set_labels():
 	$cityinfo/vbox/voters.text = str("Voters: ", cityinfo.public_voters)
 	$cityinfo/vbox/poll.text = str("(", int(round($"/root/Root".last_poll)), " s ago)")
 	$cityinfo/vbox/advertisement.text = str("Ad Effect: ", round(cityinfo.advertisement*100))
-	$cityinfo/vbox/movehere.disabled = active_city == $"/root/Root".current_city
+	$cityinfo/vbox/donations.text = str("Donat.: $ ", cityinfo.total_donations)
+	$cityinfo/vbox/movehere.disabled = active_city == $"/root/Root".current_city or $"/root/Root".current_campaign != null
 
 func _process(delta):
 	# TODO remove

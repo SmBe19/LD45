@@ -1,4 +1,4 @@
-[gd_scene load_steps=19 format=2]
+[gd_scene load_steps=20 format=2]
 
 [ext_resource path="res://src/main.gd" type="Script" id=1]
 [ext_resource path="res://img/islandmap.png" type="Texture" id=2]
@@ -29,6 +29,10 @@ size = 14
 font_data = ExtResource( 8 )
 
 [sub_resource type="DynamicFont" id=5]
+font_data = ExtResource( 9 )
+
+[sub_resource type="DynamicFont" id=6]
+size = 24
 font_data = ExtResource( 9 )
 
 [node name="Root" type="Node2D"]
@@ -198,18 +202,30 @@ margin_bottom = 8.0
 [node name="tweet" parent="." instance=ExtResource( 12 )]
 visible = false
 
+[node name="cityname" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = 357.0
+margin_top = 14.0
+margin_right = 533.0
+margin_bottom = 48.0
+custom_fonts/font = SubResource( 6 )
+custom_colors/font_color = Color( 0.619608, 0.592157, 0.278431, 1 )
+text = "Cityname"
+align = 1
+
 [node name="islandmap" parent="." instance=ExtResource( 13 )]
 visible = false
 
 [node name="campaignresultpopup" type="PopupPanel" parent="."]
-editor/display_folded = true
-margin_right = 214.0
+margin_right = 249.0
 margin_bottom = 62.0
+popup_exclusive = true
 
 [node name="margin" type="MarginContainer" parent="campaignresultpopup"]
 margin_left = 4.0
 margin_top = 4.0
-margin_right = 210.0
+margin_right = 245.0
 margin_bottom = 58.0
 custom_constants/margin_right = 8
 custom_constants/margin_top = 8
@@ -219,18 +235,18 @@ custom_constants/margin_bottom = 8
 [node name="vbox" type="VBoxContainer" parent="campaignresultpopup/margin"]
 margin_left = 8.0
 margin_top = 8.0
-margin_right = 198.0
+margin_right = 233.0
 margin_bottom = 46.0
 
 [node name="label" type="Label" parent="campaignresultpopup/margin/vbox"]
-margin_right = 190.0
+margin_right = 225.0
 margin_bottom = 14.0
 text = "Congrats"
 autowrap = true
 
 [node name="okbutton" type="Button" parent="campaignresultpopup/margin/vbox"]
 margin_top = 18.0
-margin_right = 190.0
+margin_right = 225.0
 margin_bottom = 38.0
 text = "OK"
 [connection signal="mouse_entered" from="officeislandmap/Button" to="officeislandmap" method="_on_Button_mouse_entered"]

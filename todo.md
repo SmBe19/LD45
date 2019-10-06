@@ -12,10 +12,11 @@ X Start Advertisement (Computer)
 X Donations
 X Tweet Stuff (Phone)
 X Move to different town (Islandmap)
-- Influence should play a role in getting voters/popularity
-- Lose office if not enough voters
-- TV Debate
-- Balance stuff
+X Influence should play a role in getting voters/popularity
+X Balance stuff
+- Intro (e.g. ask name)
 - Sounds
 - Music
 - Better Feedback (e.g. polls)
+- TV Debate
+- Lose office if not enough voters

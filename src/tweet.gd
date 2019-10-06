@@ -2,11 +2,14 @@ extends Control
 
 var good = ["good", "amazing", "awesome", "excellent", "faboulous", "fantastic", "gorgeous", "incredible", "outstanding", "perfect", "remarkable", "splendid", "stellar"]
 var bad = ["bad", "sad", "afraid", "annoyed", "awkward", "despicable", "enraged", "frustrated", "greedy", "grumpy", "ignorant", "incapable", "ignorant", "lousy", "miserable", "mean", "naive", "outrageous", "outrage", "pathetic", "stupid", "useless", "weak"]
+var last_tweet = []
 
 func _on_cancel_pressed():
 	$popup.hide()
 
 func handle_city(city, value, inside):
+	var current_campaign = $"/root/Root".current_campaign
+	var campaign = current_campaign != null and (current_campaign.city == city or current_campaign.city == null)
 	var old_pop = city.popularity
 	if value > 2:
 		if inside:
@@ -15,15 +18,17 @@ func handle_city(city, value, inside):
 		if inside:
 			city.advertisement = 0.0
 			city.popularity *= pow(2, value)
-			city.voters *= pow(2, value*0.2)
+			if campaign:
+				city.voters *= pow(2, value*0.2)
 		else:
 			city.popularity *= pow(2, value*0.3)
 	if value > 0:
 		if inside:
-			city.popularity += min(1, (pow(2, value) - 1) / 32.0)
-			city.voters += min(1, (pow(2, value*0.4) - 1) / 32.0)
+			city.popularity += min(1, (pow(2, value) - 1) / 16.0)
+			if campaign:
+				city.voters += min(1, (pow(2, value*0.4) - 1) / 32.0)
 		else:
-			city.popularity += min(1, (pow(2, value*0.3) - 1) / 32.0)
+			city.popularity += min(1, (pow(2, value*0.3) - 1) / 16.0)
 	return city.popularity - old_pop
 
 func _on_send_pressed():
@@ -35,21 +40,26 @@ func _on_send_pressed():
 		if part in done:
 			continue
 		done.append(part)
+		if part in last_tweet:
+			continue
 		if part in good:
 			value += 0.5
 		elif part in bad:
 			value -= 0.75
+	last_tweet = done
+	if "mariama" in text:
+		value *= 1.5
 	var result = ""
 	for city in cities:
 		var res = handle_city(city, value + (randf() - 0.5) * 5, city.name.to_lower() in text)
 		result += str(city.name, ": ")
-		if res < -0.15:
+		if res < -0.5:
 			result += "--"
-		elif res < -0.03:
+		elif res < -0.1:
 			result += "-"
-		elif res < 0.03:
+		elif res < 0.1:
 			result += "="
-		elif res < 0.15:
+		elif res < 0.5:
 			result += "+"
 		else:
 			result += "++"
